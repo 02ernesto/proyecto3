@@ -1,12 +1,10 @@
 const mongoose = require('mongoose'); // Require mongoose to create model schema
 const { Schema, model } = mongoose;   // Destructure Schema and model from mongoose
-
 // User Schema declaration
 const userSchema = new Schema(
   {
     email: {
       type: String,
-      required: true,
       unique: "ESte Usuario no esta disponible"
     },
     password: {
@@ -24,6 +22,8 @@ const userSchema = new Schema(
     roles: {
       type:String,
       required: true,
+      enum: ["Apoyo", "Recepción", "Ingeniero", "Administrativo", "Jefe", "Desarrollador"],
+      default: "Apoyo"
     },
     
     birthdate: {

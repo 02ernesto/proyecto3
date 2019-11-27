@@ -3,7 +3,11 @@ const { Schema, model } = mongoose;
 
 const local_areaSchema = new Schema (
   {
-      local_area: {
+      identifier: {
+      type: Schema.Types.ObjectId,
+      ref: "Medical_area" 
+      },  
+    local_area: {
           type:String,
           unique: "El área que deseas agregar ya esta en uso",
           required: true
